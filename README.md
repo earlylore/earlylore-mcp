@@ -1,6 +1,8 @@
 # EarlyLore MCP & Product Architect Skill
 
-> Official hosted Streamable HTTP MCP server (`com.earlylore/research`) and installable `earlylore-product-architect` Agent Skill for **Claude Code, Cursor, Codex, Antigravity, Windsurf, and Cline**.
+[![EarlyLore MCP connector](https://glama.ai/mcp/connectors/io.github.jiangqizheng/earlylore/badges/score.svg)](https://glama.ai/mcp/connectors/io.github.jiangqizheng/earlylore)
+
+> Official hosted Streamable HTTP MCP server (`com.earlylore/research` / `io.github.earlylore/earlylore-mcp`) and installable `earlylore-product-architect` Agent Skill for **Claude Code, Cursor, Codex, Antigravity, Windsurf, and Cline**.
 
 Connect your coding agent to live software market intelligence from **[EarlyLore](https://earlylore.com)**: competitor dossiers, website traffic and pricing benchmarks across 249 niches, completed idea evaluation blueprints, and computed first-fold **Design DNA** (`:root` CSS variables and layout structure).
 
