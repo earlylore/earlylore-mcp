@@ -160,9 +160,9 @@ Synced against <https://earlylore.com/pricing> on **2026-11-20** (always confirm
 - **Design DNA & Hero Gallery**: <https://earlylore.com/design>
 - **Open-Source & COSS Directory**: <https://earlylore.com/open-source>
 - **Monthly Market Reports**: <https://earlylore.com/reports>
-- **14 Research Guides**: <https://earlylore.com/blog>
+- **16 Research Guides**: <https://earlylore.com/blog> (including [Best MCP Servers for Cursor, Claude Code & Codex (2026)](https://earlylore.com/blog/best-mcp-servers-for-cursor-claude-code-and-product-research))
 - **LLM Navigation Index (`llms.txt`)**: <https://earlylore.com/llms.txt> · **Full**: <https://earlylore.com/llms-full.txt>
-- **Markdown Content Negotiation**: Any public research route supports `Accept: text/markdown` for clean agent ingestion.
+- **Markdown Content Negotiation**: Any public research route—including curated Deep sample evaluations on `/evaluations/<id>`—supports `Accept: text/markdown` for clean agent ingestion.
 
 ---
 
