@@ -1,0 +1,31 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/v1/server-card.schema.json",
+  "name": "com.earlylore/research",
+  "version": "1.1.0",
+  "title": "EarlyLore Product Research & Design DNA MCP",
+  "description": "Research software products, pricing benchmarks, traffic evidence, Design DNA tokens, and your EarlyLore workspace directly inside coding agents.",
+  "websiteUrl": "https://earlylore.com/mcp",
+  "repository": {
+    "url": "https://github.com/earlylore/earlylore-mcp",
+    "source": "github"
+  },
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://earlylore.com/api/mcp",
+      "supportedProtocolVersions": [
+        "2025-11-25",
+        "2025-06-18",
+        "2025-03-26"
+      ],
+      "headers": [
+        {
+          "name": "Authorization",
+          "description": "Bearer el_live_YOUR_TOKEN personal access key from https://earlylore.com/account. Required for tools and workspace resources.",
+          "isRequired": true,
+          "isSecret": true
+        }
+      ]
+    }
+  ]
+}

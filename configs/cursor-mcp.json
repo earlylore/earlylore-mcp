@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "earlylore": {
+      "url": "https://earlylore.com/api/mcp",
+      "headers": {
+        "Authorization": "Bearer el_live_YOUR_TOKEN"
+      }
+    }
+  }
+}
