@@ -5,13 +5,13 @@ description: Connect your AI Coding Agent (Claude Code, Cursor, Antigravity, Win
 
 # EarlyLore Product & Design Architect Skill
 
-Use this skill alongside the **EarlyLore MCP Server** (`/api/mcp`) to ground product architecture, landing-page implementation, and pricing decisions in real market evidence from 440,000+ software products.
+Use this skill alongside the **EarlyLore MCP Server** (`/api/mcp`) to ground product architecture, landing-page implementation, and pricing decisions in real market evidence from 540,000+ software products.
 
 ## 1. Prerequisites & MCP Setup
 
 Ensure the `earlylore` MCP server is connected with your personal access token (`el_live_...` generated at `/account`):
 
-Connection metadata is published at https://earlylore.com/api/mcp/server-card and listed in https://earlylore.com/.well-known/ai-catalog.json. The skills index at https://earlylore.com/.well-known/agent-skills/index.json includes this file's SHA-256 digest. MCP uses stateless Streamable HTTP; initialize with a supported version and send the negotiated `MCP-Protocol-Version` on subsequent requests.
+Connection metadata is published at https://earlylore.com/api/mcp/server-card and listed in https://earlylore.com/.well-known/ai-catalog.json. The skills index at https://earlylore.com/.well-known/agent-skills/index.json includes this file's SHA-256 digest. MCP uses stateless Streamable HTTP; initialize with a supported version and send the negotiated `MCP-Protocol-Version` on subsequent requests. Automated HTTP clients requesting `Accept: text/markdown` from public EarlyLore research pages should pass an identifiable `User-Agent` header.
 
 All tool calls count toward the account's daily MCP limit. Evaluation and design brief operations also use their respective credits. MCP product inspection uses the account's full-detail allowance and existing product-view deduplication rules. Temporary free reading of direct public web pages does not exempt authenticated MCP calls. Check each tool's annotations: product inspection, design extraction, search and comparison may start analysis or consume design allowances; saving notes and starting evaluations create account content. Ask the user before starting a new evaluation or saving a note unless their task already authorizes it.
 
@@ -46,7 +46,7 @@ When the user asks to scaffold a new product or landing page from an EarlyLore e
 
 When the user wants to find competitors, browse fastest-growing or revenue-verified projects, or pull full commercial data for a specific product:
 
-1. **Search or Filter the 440K+ Catalog (`earlylore_search_products` & `earlylore_get_market_pulse`)**:
+1. **Search or Filter the 540K+ Catalog (`earlylore_search_products` & `earlylore_get_market_pulse`)**:
    - **Exact Name / Domain Lookup (`mode: "fast"`)**: Pass `query` (e.g. `"postiz"`, `"linear.app"`) to get instant millisecond matches and creator profiles.
    - **Natural-Language Idea Match (`mode: "semantic"`)**: Pass a full product description in `query` to get direct and partial-job competitors plus concentrated niche market stats.
    - **Ranked Lists & Filters (`query` omitted)**: Browse `list: "growing" | "revenue" | "new"` filtered by `category`, `pricing` (`free`, `freemium`, `subscription`, `one_time`, `usage`), `form` (`app`, `extension`, `mcp_server`, `cli`, `api`, `web`), `minVisits`, `trend`, or `hasRepository`.
@@ -61,6 +61,11 @@ When the user wants to find competitors, browse fastest-growing or revenue-verif
      - **Verified Revenue & Claims (`revenue`, `trustmrr`, `revenueClaims`)**: Verified MRR, monthly revenue series, active subscriptions, and public revenue disclosures.
      - **Pricing & Niche Position (`pricing`)**: `pricingMode`, `entryPriceUsd`, `pricePosition` (`categoryMedianUsd`, `cheaperShare`, `pricierShare`), and full plan tiers.
      - **Ecosystem & Evolution**: `stores` (App Store / Google Play / Chrome Web Store), `recentWebsiteChanges`, `recentMarketingEvents`, `creators`, and `similarProducts`.
+3. **Compare Competitors, Alternatives & Demand Signals**:
+   - **Side-by-Side Comparison (`earlylore_compare_products`)**: Pass `slugsOrDomains` (2–8 products depending on plan) to compare traffic, channel mix, verified MRR, pricing tiers, ad libraries, and hero Design DNA side by side.
+   - **Incumbent Alternatives (`earlylore_get_incumbent_alternatives`)**: Pass `incumbentSlug` (e.g. `"notion"`, `"semrush"`, `"canva"`) or filter with `q` / `ossOnly` across 140+ tracked commercial incumbents to inspect verified indie and open-source challengers.
+   - **1v1 Product Battlecards (`earlylore_get_product_comparison`)**: Pass `pairSlug` (e.g. `"linear-vs-jira"`) or search via `q`, `categorySlug`, and `ossOnly` for monthly visits, starter pricing, choose-A vs. choose-B scenarios, and FAQs.
+   - **Unmet Buyer Demand & MVP Wedges (`earlylore_get_demand_opportunities`)**: Pass optional `categorySlug`, `groupSlug`, and `limit` (1–40) to retrieve validated community pain points, broken workarounds, WTP signals, and MVP wedges backed by verbatim quotes.
 
 ### Workflow C: Local Codebase Positioning & Pricing Audit (`本地项目竞品对标体检`)
 
@@ -85,8 +90,8 @@ When the user asks to write launch posts, cold-start copy, or promotion plans fo
 2. **Fetch Tailored Templates, Viral Examples & Community Rules (`earlylore_get_marketing_playbook`)**:
    - Call `earlylore_get_marketing_playbook` passing `productName`, `oneLiner`, `painPoint`, `incumbent`, `metric`, `form`, and optional `category`.
    - The tool returns:
-     - **8 Pre-Rendered Bilingual Templates (`templates`)**: Ready-to-post English & Chinese drafts across 8 proven launch plays (`launch_post`, `demo_video`, `versus`, `quick_build`, `workflow_pain`, `how_built`, `before_after`, `milestone`), each paired with top verified viral post examples (`100x+` normal views) for tone calibration.
-     - **15 Community Anti-Ban & Title Formula Guides (`communities`)**: Allowed formats, ban triggers, and high-converting title formulas for `r/SideProject`, `r/SaaS`, `r/LocalLLaMA`, `r/selfhosted`, `Show HN`, `Product Hunt`, `X #buildinpublic`, `RedNote (Xiaohongshu)`, and `V2EX`.
+     - **8 Pre-Rendered Bilingual Templates (`templates`)**: Ready-to-post English & Chinese drafts across 8 proven launch plays (`launch_post`, `demo_video`, `versus`, `quick_build`, `build_in_public`, `giveaway`, `hot_take`, `milestone`), each paired with top verified viral post examples (`100x+` normal views) for tone calibration.
+     - **14 Community Anti-Ban & Title Formula Guides (`communities`)**: Allowed formats, ban triggers, and high-converting title formulas for `r/SideProject`, `r/SaaS`, `r/LocalLLaMA`, `r/selfhosted`, `Show HN`, `Product Hunt`, `X #buildinpublic`, `RedNote (Xiaohongshu)`, and `V2EX`.
      - **Niche Channel Mix & 8 Global Regions (`channelMix`, `topCountries`, `regions`)**: Primary acquisition channel shares, SEO dependency, and regional search engine / local payment rules.
 3. **Output Ready-to-Publish Drafts**:
    - Present platform-specific drafts (X main post without external link + Reply #1 link, Reddit story post with exact title formula, Show HN title + technical first comment, and RedNote/V2EX copy) calibrated against the real viral post examples.
